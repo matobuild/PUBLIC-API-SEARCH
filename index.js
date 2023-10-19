@@ -64,3 +64,14 @@ let card = (name, category, description, link) => {
 };
 
 
+// // get all categories
+// const getAllCategories = async () => {
+//     try {
+//       const res = await axios.get(`https://api.publicapis.org/categories`);
+//       console.log(res);
+//     } catch (error) {
+//       console.log("ERROR: " + error);
+//     }
+//   };
+
+//   getAllCategories()
