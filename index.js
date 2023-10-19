@@ -31,7 +31,7 @@ const renderData = (data) => {
     
   }
 };
-
+// create card  and display
 let card = (name, category, description, link) => {
   const card = document.createElement("div");
   card.className = "card";
@@ -64,14 +64,34 @@ let card = (name, category, description, link) => {
 };
 
 
-// // get all categories
-// const getAllCategories = async () => {
-//     try {
-//       const res = await axios.get(`https://api.publicapis.org/categories`);
-//       console.log(res);
-//     } catch (error) {
-//       console.log("ERROR: " + error);
-//     }
-//   };
 
-//   getAllCategories()
+
+
+// get all categories
+
+
+const getAllCategories = async () => {
+    try {
+        const res = await axios.get(`https://api.publicapis.org/categories`);
+        // console.log(res.data.categories);
+        dropDown(res.data.categories)
+    } catch (error) {
+        console.log("ERROR: " + error);
+    }
+};
+getAllCategories()
+
+  // display catagories
+  
+  let dropDown = (categoryArray) => {
+      let dropDownCategory = document.querySelector("#floatingSelect")
+      for (let index = 0; index < categoryArray.length; index++) {
+          const option = document.createElement("option");
+          option.value = index + 1
+          option.innerHTML = categoryArray[index]
+          dropDownCategory.append(option)
+        }
+    }
+
+
+
